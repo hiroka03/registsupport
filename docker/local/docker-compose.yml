@@ -1,0 +1,42 @@
+version: "3" # docker-composeのバージョンを指定
+services:
+    gradle:
+        container_name: local_registsupport
+        build:
+            context: ../../
+            dockerfile: ./docker/local/java/Dockerfile
+        working_dir: /app
+        volumes:
+            - ../../.:/app:cached
+        environment:
+            DRIVER_URL: jdbc:mysql://local_registsupport_db:3306/db?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        ports:
+            - "8080:8080"
+        privileged: true
+        tty: true
+        command: bash -c "sed -i 's/\r//' ./gradlew && ./gradlew tomcatRun"
+        networks:
+            - registsupport-network
+
+    mysql:
+        container_name: local_registsupport_db
+        build:
+            context: ../../
+            dockerfile: ./docker/local/mysql/Dockerfile
+        ports:
+            - "3306:3306"
+        command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+        environment:
+            TZ: "Asia/Tokyo"
+            MYSQL_DATABASE: registsupport_db
+            MYSQL_USER: test
+            MYSQL_PASSWORD: test
+            MYSQL_ROOT_PASSWORD: root
+        volumes:
+            - "./mysql/init:/docker-entrypoint-initdb.d"
+        networks:
+            - registsupport-network
+
+networks:
+    registsupport-network:
+        driver: bridge

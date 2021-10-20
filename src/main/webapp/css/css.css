@@ -1,0 +1,76 @@
+html,body {
+    font-family: sans-serif;
+    text-align: center;
+    }
+table{
+    margin: auto;
+  }
+.button {
+    font-family: sans-serif;
+    display       : inline-block;
+    font-size     : 18pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 12px;   /* 余白       */
+    background    : #ff7f00;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    border        : 2px solid #ff7f00;    /* 枠の指定 */
+  }
+  .button:hover {
+    color         : #ff7f00;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+  }
+   /* --- INPUT=TEXTの標準デザイン設定 ---------------------*/
+.inText {
+    font-family: sans-serif;
+    box-sizing    : border-box;
+    margin        : 0;
+    vertical-align: top;
+   
+    width         : 100%;                /* 一旦100%幅     */
+    max-width     : 250px;               /* 入力域の最大幅 */
+    height        : 47px;                /* 入力域の高さ   */
+    background    : #ffffff;             /* 入力域の背景色 */
+    border        : 2px solid #000000;   /* 入力域の枠線   */
+    border-radius : 4px;                 /* 入力域の角丸   */
+    padding       : 0 10px;              /* 入力文字の余白 */
+    font-size     : 26px;                /* 入力文字サイズ */
+    color         : #333333;             /* 入力文字の色   */
+    font-weight   : bold;                /* 入力文字の太字 */
+  }
+   /* --- 入力説明の文字(標準) -----------------------------*/
+  .inText:placeholder-shown {
+    color         : #808080;                 /* 文字色     */
+    font-size     : 18px;                    /* 少し小さく */
+  }
+   /* --- 入力説明の文字(Chrome,Safari,Android,iOS等) ---- -*/
+  .inText::-webkit-input-placeholder {
+    color         : #808080;                 /* 文字色     */
+    font-size     : 18px;                    /* 少し小さく */
+  }
+   /* --- 入力説明の文字(IE用) -----------------------------*/
+  .inText:-ms-input-placeholder {
+    color         : #808080;                 /* 文字色     */
+    font-size     : 18px;                    /* 少し小さく */
+  }
+   /* --- IEの入力エリア右側×消し -------------------------*/
+  .inText::-ms-clear {
+    display     : none;                      /* ×を消す   */
+  }
+  .select {
+    font-family: sans-serif;
+    box-sizing    : border-box;
+    margin        : 0;
+    vertical-align: top;
+
+    height        : 47px;                /* 入力域の高さ   */
+    background    : #ffffff;             /* 入力域の背景色 */
+    border        : 2px solid #000000;   /* 入力域の枠線   */
+    border-radius : 4px;                 /* 入力域の角丸   */
+    padding       : 0 10px;              /* 入力文字の余白 */
+    font-size     : 26px;                /* 入力文字サイズ */
+    color         : #333333;             /* 入力文字の色   */
+    font-weight   : bold;                /* 入力文字の太字 */
+  }
