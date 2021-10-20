@@ -48,8 +48,7 @@ services:
         environment:
             #STAGE: 'production'
             #FORCE_RENEW: 'true'
-            DOMAINS: >-
-            a181401f.com -> http://35.219.132.137/
+            DOMAINS: 'a181401f.com -> http://35.219.132.137:8080'
 
 networks:
     registsupport-network:
