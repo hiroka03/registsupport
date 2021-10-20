@@ -37,19 +37,19 @@ services:
         networks:
             - registsupport-network
 
-    https-portal:
-        image: steveltn/https-portal:1
-        ports:
-            - '80:80'
-            - '443:443'
-        restart: always
-        volumes:
-            - ./certs:/var/lib/https-portal
-            - /var/run/docker.sock:/var/run/docker.sock:ro # DANGEROUS, see the warning above
-        environment:
-            #STAGE: 'production'
-            #FORCE_RENEW: 'true'
-            DOMAINS: 'a181401f.com -> http://35.219.132.137:8080'
+#     https-portal:
+#         image: steveltn/https-portal:1
+#         ports:
+#             - '80:80'
+#             - '443:443'
+#         restart: always
+#         volumes:
+#             - ./certs:/var/lib/https-portal
+#             - /var/run/docker.sock:/var/run/docker.sock:ro # DANGEROUS, see the warning above
+#         environment:
+#             #STAGE: 'production'
+#             #FORCE_RENEW: 'true'
+#             DOMAINS: 'a181401f.com -> http://35.219.132.137:8080'
 
 networks:
     registsupport-network:
