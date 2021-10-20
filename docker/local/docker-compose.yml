@@ -45,6 +45,7 @@ services:
         restart: always
         volumes:
             - ./certs:/var/lib/https-portal
+            - /var/run/docker.sock:/var/run/docker.sock:ro # DANGEROUS, see the warning above
         environment:
             #STAGE: 'production'
             #FORCE_RENEW: 'true'
