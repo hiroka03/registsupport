@@ -49,7 +49,7 @@ services:
             #STAGE: 'production'
             #FORCE_RENEW: 'true'
             DOMAINS: >-
-            a181401f.com -> http://localhost:8080
+            a181401f.com -> http://35.219.132.137/
 
 networks:
     registsupport-network:
