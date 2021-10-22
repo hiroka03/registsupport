@@ -11,7 +11,10 @@ services:
         environment:
             DRIVER_URL: jdbc:mysql://local_registsupport_db:3306/db?useUnicode=true&characterEncoding=UTF-8&useSSL=false
         ports:
-            - "8080:8080"
+            - '4430:443'
+        volumes:
+            - ../../35.219.132.137-key.pem
+            - ../../35.219.132.137.pem
         privileged: true
         tty: true
         command: bash -c "sed -i 's/\r//' ./gradlew && ./gradlew tomcatRun"
@@ -36,21 +39,6 @@ services:
             - "./mysql/init:/docker-entrypoint-initdb.d"
         networks:
             - registsupport-network
-
-#     https-portal:
-#         image: steveltn/https-portal:1
-#         ports:
-#             - '80:80'
-#             - '443:443'
-#         restart: always
-#         volumes:
-#             - ./certs:/var/lib/https-portal
-#             - /var/run/docker.sock:/var/run/docker.sock:ro # DANGEROUS, see the warning above
-#         environment:
-#             #STAGE: 'production'
-#             #FORCE_RENEW: 'true'
-#             DOMAINS: 'a181401f.com -> http://35.219.132.137:8080'
-
 networks:
     registsupport-network:
         driver: bridge
