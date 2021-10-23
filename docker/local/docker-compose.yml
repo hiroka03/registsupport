@@ -8,13 +8,10 @@ services:
         working_dir: /app
         volumes:
             - ../../.:/app:cached
-            - ./localhost-key.pem
-            - ./localhost.pem
         environment:
             DRIVER_URL: jdbc:mysql://local_registsupport_db:3306/db?useUnicode=true&characterEncoding=UTF-8&useSSL=false
         ports:
             - '8080:8080'
-            - '4430:443'
         privileged: true
         tty: true
         command: bash -c "sed -i 's/\r//' ./gradlew && ./gradlew tomcatRun"
